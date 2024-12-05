@@ -19,8 +19,9 @@ func Runner() error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Part 1 distance: %v\n", Part1(l, r))
-	fmt.Printf("Part 2 distance: %v\n", Part2(l, r))
+	fmt.Printf("\n:: DAY 1 ::\n")
+	fmt.Printf("Part 1: %v\n", Part1(l, r))
+	fmt.Printf("Part 2: %v\n", Part2(l, r))
 	return nil
 }
 
