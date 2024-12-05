@@ -1,4 +1,8 @@
-# AOC 2024 Golang
+# Advent of Code 2024 (Golang)
+
+<p align="center"><img src="./golang-aoc.jpeg" alt="The most wonderful time?" width="350" height="350"></p>
+
+# Goals
 
 * Solve some AOC in Golang.
 * Finish it for once!
