@@ -33,8 +33,12 @@ func Part1(lines []string) int {
 	return total
 }
 
+const (
+	RegexpMulti = "mul\\((?P<first>\\d{1,3}),(?P<second>\\d{1,3})\\)"
+)
+
 func SumMultiplications(line string) int {
-	reg := regexp.MustCompile("mul\\((\\d{1,3}),(\\d{1,3})\\)")
+	reg := regexp.MustCompile(RegexpMulti)
 	var total int
 	for _, match := range reg.FindAllStringSubmatch(line, -1) {
 		i1, _ := strconv.Atoi(match[1])
@@ -46,6 +50,7 @@ func SumMultiplications(line string) int {
 
 func Part2(lines []string) int {
 	var catLine strings.Builder
+	// easier to concat all lines rather than worry about preserving state over line breaks
 	for _, line := range lines {
 		catLine.WriteString(line)
 	}
@@ -62,11 +67,14 @@ type scanRange struct {
 	isDone     bool
 }
 
+const (
+	RegexpDo   = "do\\(\\)"
+	RegexpDont = "don't\\(\\)"
+)
+
 func SumWithStop(line string) int {
-	rDo := regexp.MustCompile("do\\(\\)")
-	rDont := regexp.MustCompile("don't\\(\\)")
-	dos := rDo.FindAllStringIndex(line, -1)
-	donts := rDont.FindAllStringIndex(line, -1)
+	dos := regexp.MustCompile(RegexpDo).FindAllStringIndex(line, -1)
+	donts := regexp.MustCompile(RegexpDont).FindAllStringIndex(line, -1)
 	changePoints := make([]changePoint, 1, len(dos)+len(donts)+1)
 	changePoints[0] = changePoint{active: true, ix: 0}
 	for _, do := range dos {
@@ -84,7 +92,7 @@ func SumWithStop(line string) int {
 	sort.SliceStable(changePoints, func(i, j int) bool {
 		return changePoints[i].ix < changePoints[j].ix
 	})
-	isActive := changePoints[0].active // we always start true
+	isActive := changePoints[0].active
 	var scanRanges []scanRange
 	var currentRange scanRange
 	for _, cp := range changePoints {
