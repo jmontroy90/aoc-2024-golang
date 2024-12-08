@@ -18,5 +18,6 @@
 | [Day 4](https://adventofcode.com/2024/day/4) |   ⭐    |   ⭐    |          [Read your prompts](day4/README.md)          |
 | [Day 5](https://adventofcode.com/2024/day/5) |   ⭐    |   ⭐    |        [Squinting at indexes](day5/README.md)         |
 | [Day 6](https://adventofcode.com/2024/day/6) |   ⭐    |   ⭐    |          [EnterPrize GoLang](day6/README.md)          |
+| [Day 7](https://adventofcode.com/2024/day/7) |   ⭐    |   ⭐    |            [I am a brute](day7/README.md)             |
 
 
