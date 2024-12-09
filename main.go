@@ -9,9 +9,13 @@ import (
 	"github.com/jmontroy90/aoc-2024/day6"
 	"github.com/jmontroy90/aoc-2024/day7"
 	"github.com/jmontroy90/aoc-2024/day8"
+	"github.com/jmontroy90/aoc-2024/day9"
 )
 
 func main() {
+	if err := day9.Runner(); err != nil {
+		panic(err)
+	}
 	if err := day8.Runner(); err != nil {
 		panic(err)
 	}
