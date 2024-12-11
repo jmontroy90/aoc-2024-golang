@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/jmontroy90/aoc-2024/day1"
 	"github.com/jmontroy90/aoc-2024/day10"
+	"github.com/jmontroy90/aoc-2024/day11"
 	"github.com/jmontroy90/aoc-2024/day2"
 	"github.com/jmontroy90/aoc-2024/day3"
 	"github.com/jmontroy90/aoc-2024/day4"
@@ -14,6 +15,9 @@ import (
 )
 
 func main() {
+	if err := day11.Runner(); err != nil {
+		panic(err)
+	}
 	if err := day10.Runner(); err != nil {
 		panic(err)
 	}

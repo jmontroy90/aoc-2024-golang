@@ -22,5 +22,6 @@
 |  [Day 8](https://adventofcode.com/2024/day/8)  |   ⭐    |   ⭐    |       [EnterPrize to the rescue](day8/README.md)       |
 |  [Day 9](https://adventofcode.com/2024/day/9)  |   ⭐    |   ⭐    | [Day 9: I Scan, You Scan, We All Scan](day9/README.md) |
 | [Day 10](https://adventofcode.com/2024/day/10) |   ⭐    |   ⭐    |       [Day 10: Beautiful Code](day10/README.md)        |
+| [Day 11](https://adventofcode.com/2024/day/11) |   ⭐    |   ⭐    |         [Day 11: Just cache!](day11/README.md)         |
 
 
