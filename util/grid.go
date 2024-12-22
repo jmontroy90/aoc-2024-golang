@@ -2,14 +2,17 @@ package util
 
 import (
 	"bufio"
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type Grid struct {
 	raw     [][]rune // this copy for resets is a little weird
-	grid    [][]rune
+	Grid    [][]rune
 	scanPos XY
 }
 
@@ -35,9 +38,21 @@ func NewGridFromFile(filePath string) (*Grid, error) {
 func NewGrid(raw [][]rune) *Grid {
 	return &Grid{
 		raw:     raw, // for resets
-		grid:    newGridFromRaw(raw),
+		Grid:    newGridFromRaw(raw),
 		scanPos: XY{-1, 0},
 	}
+}
+
+func NewGridFromDim(x, y int) *Grid {
+	var grid [][]rune
+	for i := 0; i < y; i++ {
+		row := make([]rune, x)
+		for ix := 0; ix < x; ix++ {
+			row[ix] = Empty
+		}
+		grid = append(grid, row)
+	}
+	return NewGrid(grid)
 }
 
 func newGridFromRaw(raw [][]rune) [][]rune {
@@ -54,7 +69,7 @@ func (g *Grid) Get(pos XY) rune {
 	if g.IsOOB(pos) {
 		return OOB
 	}
-	return g.grid[pos.Y][pos.X]
+	return g.Grid[pos.Y][pos.X]
 }
 
 var (
@@ -70,7 +85,7 @@ func (g *Grid) GetInt(pos XY) (int, error) {
 }
 
 func (g *Grid) IsOOB(pos XY) bool {
-	if pos.X >= len(g.grid[0]) || pos.Y >= len(g.grid) || pos.X < 0 || pos.Y < 0 {
+	if pos.X >= len(g.Grid[0]) || pos.Y >= len(g.Grid) || pos.X < 0 || pos.Y < 0 {
 		return true
 	}
 	return false
@@ -116,8 +131,8 @@ func (g *Grid) CurrentPosition() XY {
 
 func (g *Grid) scanNext(r rune, from XY, comparisonFunc func(a, b rune) bool) (XY, bool) {
 	firstScan := true
-	for y := from.Y; y < len(g.grid); y++ {
-		for x := 0; x < len(g.grid[0]); x++ {
+	for y := from.Y; y < len(g.Grid); y++ {
+		for x := 0; x < len(g.Grid[0]); x++ {
 			if firstScan { // first scan pos
 				x = from.X
 				firstScan = false
@@ -135,7 +150,7 @@ func (g *Grid) Set(pos XY, r rune) bool {
 	if g.IsOOB(pos) {
 		return false
 	}
-	g.grid[pos.Y][pos.X] = r
+	g.Grid[pos.Y][pos.X] = r
 	return true
 }
 
@@ -145,25 +160,35 @@ func (g *Grid) GetSet(pos XY, r rune) (rune, bool) {
 		return OOB, false // choosing a silent semantic for now
 	}
 	if existing := g.Get(pos); existing != Empty {
-		g.grid[pos.Y][pos.X] = r
+		g.Grid[pos.Y][pos.X] = r
 		return existing, true
 	}
-	g.grid[pos.Y][pos.X] = r
+	g.Grid[pos.Y][pos.X] = r
 	return Empty, true
 }
 
 func (g *Grid) Print() {
-	for y := range g.grid {
-		for x := range g.grid[y] {
-			fmt.Printf("%c", g.grid[y][x])
+	for y := range g.Grid {
+		for x := range g.Grid[y] {
+			fmt.Printf("%c", g.Grid[y][x])
 		}
 		fmt.Println()
 	}
 	fmt.Println()
 }
 
+func (g *Grid) Checksum() string {
+	var sb strings.Builder
+	for _, row := range g.Grid {
+		for _, r := range row {
+			sb.WriteRune(r)
+		}
+	}
+	hash := sha256.Sum256([]byte(sb.String()))
+	return hex.EncodeToString(hash[:])
+}
 func (g *Grid) Clear() {
-	g.grid = newGridFromRaw(g.raw)
+	g.Grid = newGridFromRaw(g.raw)
 }
 
 type XY struct {

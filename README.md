@@ -24,6 +24,7 @@
 | [Day 10](https://adventofcode.com/2024/day/10) |   ⭐    |   ⭐    |       [Day 10: Beautiful Code](day10/README.md)        |
 | [Day 11](https://adventofcode.com/2024/day/11) |   ⭐    |   ⭐    |         [Day 11: Just cache!](day11/README.md)         |
 | [Day 12](https://adventofcode.com/2024/day/12) |   ⭐    |   ⭐    |    [Day 12: Complexity is raised](day12/README.md)     |
-| [Day 13](https://adventofcode.com/2024/day/13) |   ⭐    |   ⭐    |           [Day 12: MATH!!!](day13/README.md)           |
+| [Day 13](https://adventofcode.com/2024/day/13) |   ⭐    |   ⭐    |           [Day 13: MATH!!!](day13/README.md)           |
+| [Day 14](https://adventofcode.com/2024/day/14) |   ⭐    |   ⭐    |      [Day 14: Find your measure](day14/README.md)      |
 
 
