@@ -177,6 +177,17 @@ func (g *Grid) Print() {
 	fmt.Println()
 }
 
+func (g *Grid) PrintString() string {
+	var sb strings.Builder
+	for y := range g.Grid {
+		for x := range g.Grid[y] {
+			sb.WriteRune(g.Grid[y][x])
+		}
+		sb.WriteRune('\n')
+	}
+	return sb.String()
+}
+
 func (g *Grid) Checksum() string {
 	var sb strings.Builder
 	for _, row := range g.Grid {
@@ -187,7 +198,7 @@ func (g *Grid) Checksum() string {
 	hash := sha256.Sum256([]byte(sb.String()))
 	return hex.EncodeToString(hash[:])
 }
-func (g *Grid) Clear() {
+func (g *Grid) Reset() {
 	g.Grid = newGridFromRaw(g.raw)
 }
 

@@ -17,7 +17,7 @@ func Runner() error {
 	}
 	fmt.Printf("\n:: DAY 12 ::\n")
 	fmt.Printf("Part 1: %v\n", Part1(grid))
-	grid.Clear()
+	grid.Reset()
 	fmt.Printf("Part 2: %v\n", Part2(grid))
 	return nil
 }

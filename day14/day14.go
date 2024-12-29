@@ -49,7 +49,7 @@ func Part2(robots []Robot, gridX, gridY int) int {
 	var maxInRow, stepsWithMax int
 	// 10000 is arbitrarily chosen based on the magnitude of other answers I've seen; basically, I cheated.
 	for steps := 1; steps < 10000; steps++ {
-		grid.Clear()
+		grid.Reset()
 		if steps%1000 == 0 {
 			fmt.Printf("steps = %v\n", steps)
 		}
