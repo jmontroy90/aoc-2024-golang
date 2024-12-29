@@ -15,3 +15,8 @@ Key takeways:
 * There's redundant logic that can be cleaned up here. Many layers of looping to unpeel. If this were for a job, I'd spend probably another 2-4 hours refactoring, clarifying, and testing my existing solution. I might still come back and do that.
 
 I'll update this as I learn about other approaches to this problem.
+
+## Notes from Others
+
+- Definitely worth it to just use a `SortStableFunc` with a comparator function in Go for this.
+- I think I rewrote some ugly selection sort here. Worth it to try to put a name to it.

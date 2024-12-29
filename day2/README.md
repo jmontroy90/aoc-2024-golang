@@ -9,3 +9,10 @@ Well, that's more like it! Part 1 was pretty easy, but part 2 messed with me. He
 * I looked at other AOC2024 Go solutions to figure out whether I was undercounting or overcounting once my first attempt was wrong. To be precise, I ran my input through their programs and then figured out which reports we disagreed on. This was really useful to pop into my table tests and start to realize how I'd misconceived the solution.
 
 Overall, this took me a little while longer than expected, but that's fair - we're getting back into it!
+
+## Notes from Others
+
+- Creating pairs with two pointers, or an off-by-one zipping, makes it easier to iterate.
+- The core data element here is the pair differences. Focus on that.
+- If you have a slice of pair-wise differences, you can evaluate if all of them are negative vs. all positive.
+  - This way we check all conditions every time for a global pass / fail, rather than some extra state one time.
