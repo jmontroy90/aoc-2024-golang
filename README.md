@@ -27,5 +27,9 @@
 | [Day 13](https://adventofcode.com/2024/day/13) |   ⭐    |   ⭐    |              [Day 13: MATH!!!](day13/README.md)               |
 | [Day 14](https://adventofcode.com/2024/day/14) |   ⭐    |   ⭐    |         [Day 14: Find your measure](day14/README.md)          |
 | [Day 15](https://adventofcode.com/2024/day/15) |   ⭐    |   ⭐    | [Day 15: There's a data structure somewhere](day15/README.md) |
+| [Day 16](https://adventofcode.com/2024/day/16) |   ⭐    |   ⭐    | [Day 16: Hello old friend (e.g. algorithms)](day16/README.md) |**
+
+
+
 
 

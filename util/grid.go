@@ -244,6 +244,10 @@ func (p XY) NextDirections() []Direction {
 	return []Direction{Right, Down, Left, Up}
 }
 
+func NextDirections() []Direction {
+	return []Direction{Right, Down, Left, Up}
+}
+
 // TODO: This is imprecise semantically and maybe weird.
 type Direction = XY
 
@@ -253,6 +257,36 @@ var (
 	Left  = XY{-1, 0}
 	Up    = XY{0, -1}
 )
+
+func (d Direction) TurnClockwise() Direction {
+	var nd Direction
+	switch d {
+	case Right:
+		nd = Down
+	case Down:
+		nd = Left
+	case Left:
+		nd = Up
+	case Up:
+		nd = Right
+	}
+	return nd
+}
+
+func (d Direction) TurnCounterClockwise() Direction {
+	var nd Direction
+	switch d {
+	case Right:
+		nd = Up
+	case Down:
+		nd = Right
+	case Left:
+		nd = Down
+	case Up:
+		nd = Left
+	}
+	return nd
+}
 
 func (d Direction) Name() string {
 	var n string
@@ -267,4 +301,17 @@ func (d Direction) Name() string {
 		n = "Up"
 	}
 	return n
+}
+
+func (d Direction) ToRune() rune {
+	switch d {
+	case Up:
+		return '^'
+	case Left:
+		return '<'
+	case Right:
+		return '>'
+	default: // case Down:
+		return 'v'
+	}
 }
