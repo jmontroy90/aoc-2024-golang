@@ -30,6 +30,7 @@
 | [Day 16](https://adventofcode.com/2024/day/16) |   ⭐    |   ⭐    | [Hello old friend (e.g. algorithms)](day16/README.md) |
 | [Day 17](https://adventofcode.com/2024/day/17) |   ⭐    |   ⭐    |        [It's a com-poo-ter!](day17/README.md)         |
 | [Day 18](https://adventofcode.com/2024/day/18) |   ⭐    |   ⭐    |            [Thanks BFS!](day18/README.md)             |
+| [Day 19](https://adventofcode.com/2024/day/19) |   ⭐    |   ⭐    |     [More caching and recursion](day19/README.md)     |
 
 
 
