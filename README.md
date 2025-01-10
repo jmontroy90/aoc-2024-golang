@@ -31,6 +31,7 @@
 | [Day 17](https://adventofcode.com/2024/day/17) |   ⭐    |   ⭐    |        [It's a com-poo-ter!](day17/README.md)         |
 | [Day 18](https://adventofcode.com/2024/day/18) |   ⭐    |   ⭐    |            [Thanks BFS!](day18/README.md)             |
 | [Day 19](https://adventofcode.com/2024/day/19) |   ⭐    |   ⭐    |     [More caching and recursion](day19/README.md)     |
+| [Day 20](https://adventofcode.com/2024/day/20) |   ⭐    |   ⭐    |       [I guess I just BFS now](day20/README.md)       |
 
 
 

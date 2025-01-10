@@ -13,6 +13,7 @@ import (
 	"github.com/jmontroy90/aoc-2024/day18"
 	"github.com/jmontroy90/aoc-2024/day19"
 	"github.com/jmontroy90/aoc-2024/day2"
+	"github.com/jmontroy90/aoc-2024/day20"
 	"github.com/jmontroy90/aoc-2024/day3"
 	"github.com/jmontroy90/aoc-2024/day4"
 	"github.com/jmontroy90/aoc-2024/day5"
@@ -23,6 +24,9 @@ import (
 )
 
 func main() {
+	if err := day20.Runner(); err != nil {
+		panic(err)
+	}
 	if err := day19.Runner(); err != nil {
 		panic(err)
 	}
